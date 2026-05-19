@@ -1,0 +1,2456 @@
+{
+  "GEN": [
+    {
+      "rank": 1,
+      "marks": 328
+    },
+    {
+      "rank": 101,
+      "marks": 274
+    },
+    {
+      "rank": 201,
+      "marks": 258
+    },
+    {
+      "rank": 301,
+      "marks": 245
+    },
+    {
+      "rank": 401,
+      "marks": 237
+    },
+    {
+      "rank": 501,
+      "marks": 230
+    },
+    {
+      "rank": 601,
+      "marks": 224
+    },
+    {
+      "rank": 701,
+      "marks": 218
+    },
+    {
+      "rank": 801,
+      "marks": 213
+    },
+    {
+      "rank": 901,
+      "marks": 208
+    },
+    {
+      "rank": 1001,
+      "marks": 204
+    },
+    {
+      "rank": 1101,
+      "marks": 201
+    },
+    {
+      "rank": 1201,
+      "marks": 197
+    },
+    {
+      "rank": 1301,
+      "marks": 195
+    },
+    {
+      "rank": 1401,
+      "marks": 192
+    },
+    {
+      "rank": 1501,
+      "marks": 189
+    },
+    {
+      "rank": 1601,
+      "marks": 187
+    },
+    {
+      "rank": 1701,
+      "marks": 184
+    },
+    {
+      "rank": 1801,
+      "marks": 182
+    },
+    {
+      "rank": 1901,
+      "marks": 180
+    },
+    {
+      "rank": 2001,
+      "marks": 177
+    },
+    {
+      "rank": 2101,
+      "marks": 175
+    },
+    {
+      "rank": 2201,
+      "marks": 173
+    },
+    {
+      "rank": 2301,
+      "marks": 172
+    },
+    {
+      "rank": 2401,
+      "marks": 170
+    },
+    {
+      "rank": 2501,
+      "marks": 168
+    },
+    {
+      "rank": 2601,
+      "marks": 167
+    },
+    {
+      "rank": 2701,
+      "marks": 166
+    },
+    {
+      "rank": 2801,
+      "marks": 164
+    },
+    {
+      "rank": 2901,
+      "marks": 163
+    },
+    {
+      "rank": 3001,
+      "marks": 161
+    },
+    {
+      "rank": 3101,
+      "marks": 160
+    },
+    {
+      "rank": 3201,
+      "marks": 159
+    },
+    {
+      "rank": 3301,
+      "marks": 157
+    },
+    {
+      "rank": 3401,
+      "marks": 156
+    },
+    {
+      "rank": 3501,
+      "marks": 155
+    },
+    {
+      "rank": 3601,
+      "marks": 154
+    },
+    {
+      "rank": 3701,
+      "marks": 153
+    },
+    {
+      "rank": 3801,
+      "marks": 152
+    },
+    {
+      "rank": 3901,
+      "marks": 151
+    },
+    {
+      "rank": 4001,
+      "marks": 150
+    },
+    {
+      "rank": 4101,
+      "marks": 149
+    },
+    {
+      "rank": 4201,
+      "marks": 148
+    },
+    {
+      "rank": 4301,
+      "marks": 147
+    },
+    {
+      "rank": 4401,
+      "marks": 146
+    },
+    {
+      "rank": 4501,
+      "marks": 145
+    },
+    {
+      "rank": 4601,
+      "marks": 144
+    },
+    {
+      "rank": 4701,
+      "marks": 144
+    },
+    {
+      "rank": 4801,
+      "marks": 143
+    },
+    {
+      "rank": 4901,
+      "marks": 142
+    },
+    {
+      "rank": 5001,
+      "marks": 141
+    },
+    {
+      "rank": 5101,
+      "marks": 140
+    },
+    {
+      "rank": 5201,
+      "marks": 140
+    },
+    {
+      "rank": 5301,
+      "marks": 139
+    },
+    {
+      "rank": 5401,
+      "marks": 138
+    },
+    {
+      "rank": 5501,
+      "marks": 138
+    },
+    {
+      "rank": 5601,
+      "marks": 137
+    },
+    {
+      "rank": 5701,
+      "marks": 136
+    },
+    {
+      "rank": 5801,
+      "marks": 136
+    },
+    {
+      "rank": 5901,
+      "marks": 135
+    },
+    {
+      "rank": 6001,
+      "marks": 134
+    },
+    {
+      "rank": 6101,
+      "marks": 134
+    },
+    {
+      "rank": 6201,
+      "marks": 133
+    },
+    {
+      "rank": 6301,
+      "marks": 133
+    },
+    {
+      "rank": 6401,
+      "marks": 132
+    },
+    {
+      "rank": 6501,
+      "marks": 132
+    },
+    {
+      "rank": 6601,
+      "marks": 131
+    },
+    {
+      "rank": 6701,
+      "marks": 131
+    },
+    {
+      "rank": 6801,
+      "marks": 130
+    },
+    {
+      "rank": 6901,
+      "marks": 129
+    },
+    {
+      "rank": 7001,
+      "marks": 129
+    },
+    {
+      "rank": 7101,
+      "marks": 128
+    },
+    {
+      "rank": 7201,
+      "marks": 128
+    },
+    {
+      "rank": 7301,
+      "marks": 127
+    },
+    {
+      "rank": 7401,
+      "marks": 127
+    },
+    {
+      "rank": 7501,
+      "marks": 126
+    },
+    {
+      "rank": 7601,
+      "marks": 126
+    },
+    {
+      "rank": 7701,
+      "marks": 125
+    },
+    {
+      "rank": 7801,
+      "marks": 125
+    },
+    {
+      "rank": 7901,
+      "marks": 124
+    },
+    {
+      "rank": 8001,
+      "marks": 124
+    },
+    {
+      "rank": 8101,
+      "marks": 123
+    },
+    {
+      "rank": 8201,
+      "marks": 123
+    },
+    {
+      "rank": 8301,
+      "marks": 123
+    },
+    {
+      "rank": 8401,
+      "marks": 122
+    },
+    {
+      "rank": 8501,
+      "marks": 122
+    },
+    {
+      "rank": 8601,
+      "marks": 121
+    },
+    {
+      "rank": 8701,
+      "marks": 121
+    },
+    {
+      "rank": 8801,
+      "marks": 120
+    },
+    {
+      "rank": 8901,
+      "marks": 120
+    },
+    {
+      "rank": 9001,
+      "marks": 120
+    },
+    {
+      "rank": 9101,
+      "marks": 119
+    },
+    {
+      "rank": 9201,
+      "marks": 119
+    },
+    {
+      "rank": 9301,
+      "marks": 118
+    },
+    {
+      "rank": 9401,
+      "marks": 118
+    },
+    {
+      "rank": 9501,
+      "marks": 118
+    },
+    {
+      "rank": 9601,
+      "marks": 117
+    },
+    {
+      "rank": 9701,
+      "marks": 117
+    },
+    {
+      "rank": 9801,
+      "marks": 116
+    },
+    {
+      "rank": 9901,
+      "marks": 116
+    },
+    {
+      "rank": 10001,
+      "marks": 116
+    },
+    {
+      "rank": 10101,
+      "marks": 115
+    },
+    {
+      "rank": 10201,
+      "marks": 115
+    },
+    {
+      "rank": 10301,
+      "marks": 115
+    },
+    {
+      "rank": 10401,
+      "marks": 114
+    },
+    {
+      "rank": 10501,
+      "marks": 114
+    },
+    {
+      "rank": 10601,
+      "marks": 113
+    },
+    {
+      "rank": 10701,
+      "marks": 113
+    },
+    {
+      "rank": 10801,
+      "marks": 113
+    },
+    {
+      "rank": 10901,
+      "marks": 112
+    },
+    {
+      "rank": 11001,
+      "marks": 112
+    },
+    {
+      "rank": 11101,
+      "marks": 112
+    },
+    {
+      "rank": 11201,
+      "marks": 111
+    },
+    {
+      "rank": 11301,
+      "marks": 111
+    },
+    {
+      "rank": 11401,
+      "marks": 111
+    },
+    {
+      "rank": 11501,
+      "marks": 110
+    },
+    {
+      "rank": 11601,
+      "marks": 110
+    },
+    {
+      "rank": 11701,
+      "marks": 110
+    },
+    {
+      "rank": 11801,
+      "marks": 109
+    },
+    {
+      "rank": 11901,
+      "marks": 109
+    },
+    {
+      "rank": 12001,
+      "marks": 109
+    },
+    {
+      "rank": 12101,
+      "marks": 108
+    },
+    {
+      "rank": 12201,
+      "marks": 108
+    },
+    {
+      "rank": 12301,
+      "marks": 108
+    },
+    {
+      "rank": 12401,
+      "marks": 107
+    },
+    {
+      "rank": 12501,
+      "marks": 107
+    },
+    {
+      "rank": 12601,
+      "marks": 107
+    },
+    {
+      "rank": 12701,
+      "marks": 107
+    },
+    {
+      "rank": 12801,
+      "marks": 106
+    },
+    {
+      "rank": 12901,
+      "marks": 106
+    },
+    {
+      "rank": 13001,
+      "marks": 106
+    },
+    {
+      "rank": 13101,
+      "marks": 105
+    },
+    {
+      "rank": 13201,
+      "marks": 105
+    },
+    {
+      "rank": 13301,
+      "marks": 105
+    },
+    {
+      "rank": 13401,
+      "marks": 105
+    },
+    {
+      "rank": 13501,
+      "marks": 104
+    },
+    {
+      "rank": 13601,
+      "marks": 104
+    },
+    {
+      "rank": 13701,
+      "marks": 104
+    },
+    {
+      "rank": 13801,
+      "marks": 103
+    },
+    {
+      "rank": 13901,
+      "marks": 103
+    },
+    {
+      "rank": 14001,
+      "marks": 103
+    },
+    {
+      "rank": 14101,
+      "marks": 103
+    },
+    {
+      "rank": 14201,
+      "marks": 102
+    },
+    {
+      "rank": 14301,
+      "marks": 102
+    },
+    {
+      "rank": 14401,
+      "marks": 102
+    },
+    {
+      "rank": 14501,
+      "marks": 102
+    },
+    {
+      "rank": 14601,
+      "marks": 101
+    },
+    {
+      "rank": 14701,
+      "marks": 101
+    },
+    {
+      "rank": 14801,
+      "marks": 101
+    },
+    {
+      "rank": 14901,
+      "marks": 101
+    },
+    {
+      "rank": 15001,
+      "marks": 100
+    },
+    {
+      "rank": 15101,
+      "marks": 100
+    },
+    {
+      "rank": 15201,
+      "marks": 100
+    },
+    {
+      "rank": 15301,
+      "marks": 100
+    },
+    {
+      "rank": 15401,
+      "marks": 99
+    },
+    {
+      "rank": 15501,
+      "marks": 99
+    },
+    {
+      "rank": 15601,
+      "marks": 99
+    },
+    {
+      "rank": 15701,
+      "marks": 98
+    },
+    {
+      "rank": 15801,
+      "marks": 98
+    },
+    {
+      "rank": 15901,
+      "marks": 98
+    },
+    {
+      "rank": 16001,
+      "marks": 98
+    },
+    {
+      "rank": 16101,
+      "marks": 98
+    },
+    {
+      "rank": 16201,
+      "marks": 97
+    },
+    {
+      "rank": 16301,
+      "marks": 97
+    },
+    {
+      "rank": 16401,
+      "marks": 97
+    },
+    {
+      "rank": 16501,
+      "marks": 97
+    },
+    {
+      "rank": 16601,
+      "marks": 96
+    },
+    {
+      "rank": 16701,
+      "marks": 96
+    },
+    {
+      "rank": 16801,
+      "marks": 96
+    },
+    {
+      "rank": 16901,
+      "marks": 96
+    },
+    {
+      "rank": 17001,
+      "marks": 96
+    },
+    {
+      "rank": 17101,
+      "marks": 95
+    },
+    {
+      "rank": 17201,
+      "marks": 95
+    },
+    {
+      "rank": 17301,
+      "marks": 95
+    },
+    {
+      "rank": 17301,
+      "marks": 95
+    },
+    {
+      "rank": 17401,
+      "marks": 95
+    },
+    {
+      "rank": 17501,
+      "marks": 95
+    },
+    {
+      "rank": 17601,
+      "marks": 94
+    },
+    {
+      "rank": 17701,
+      "marks": 94
+    },
+    {
+      "rank": 17801,
+      "marks": 94
+    },
+    {
+      "rank": 17901,
+      "marks": 94
+    },
+    {
+      "rank": 18001,
+      "marks": 94
+    },
+    {
+      "rank": 18101,
+      "marks": 93
+    },
+    {
+      "rank": 18201,
+      "marks": 93
+    },
+    {
+      "rank": 18301,
+      "marks": 93
+    },
+    {
+      "rank": 18401,
+      "marks": 93
+    },
+    {
+      "rank": 18501,
+      "marks": 93
+    },
+    {
+      "rank": 18601,
+      "marks": 92
+    },
+    {
+      "rank": 18701,
+      "marks": 92
+    },
+    {
+      "rank": 18801,
+      "marks": 92
+    },
+    {
+      "rank": 18901,
+      "marks": 92
+    },
+    {
+      "rank": 19001,
+      "marks": 92
+    },
+    {
+      "rank": 19101,
+      "marks": 91
+    },
+    {
+      "rank": 19201,
+      "marks": 91
+    },
+    {
+      "rank": 19301,
+      "marks": 91
+    },
+    {
+      "rank": 19501,
+      "marks": 91
+    },
+    {
+      "rank": 19601,
+      "marks": 90
+    },
+    {
+      "rank": 19701,
+      "marks": 90
+    },
+    {
+      "rank": 19801,
+      "marks": 90
+    },
+    {
+      "rank": 19901,
+      "marks": 90
+    },
+    {
+      "rank": 20001,
+      "marks": 90
+    },
+    {
+      "rank": 20101,
+      "marks": 90
+    },
+    {
+      "rank": 20201,
+      "marks": 89
+    },
+    {
+      "rank": 20301,
+      "marks": 89
+    },
+    {
+      "rank": 20401,
+      "marks": 89
+    },
+    {
+      "rank": 20501,
+      "marks": 89
+    },
+    {
+      "rank": 20601,
+      "marks": 89
+    },
+    {
+      "rank": 20701,
+      "marks": 88
+    },
+    {
+      "rank": 20801,
+      "marks": 88
+    },
+    {
+      "rank": 20901,
+      "marks": 88
+    },
+    {
+      "rank": 21001,
+      "marks": 88
+    },
+    {
+      "rank": 21101,
+      "marks": 88
+    },
+    {
+      "rank": 21201,
+      "marks": 88
+    },
+    {
+      "rank": 21301,
+      "marks": 87
+    },
+    {
+      "rank": 21401,
+      "marks": 87
+    },
+    {
+      "rank": 21501,
+      "marks": 87
+    },
+    {
+      "rank": 21601,
+      "marks": 87
+    },
+    {
+      "rank": 21701,
+      "marks": 87
+    },
+    {
+      "rank": 21801,
+      "marks": 87
+    },
+    {
+      "rank": 21901,
+      "marks": 86
+    },
+    {
+      "rank": 22001,
+      "marks": 86
+    },
+    {
+      "rank": 22101,
+      "marks": 86
+    },
+    {
+      "rank": 22201,
+      "marks": 86
+    },
+    {
+      "rank": 22301,
+      "marks": 86
+    },
+    {
+      "rank": 22401,
+      "marks": 86
+    },
+    {
+      "rank": 22501,
+      "marks": 85
+    },
+    {
+      "rank": 22601,
+      "marks": 85
+    },
+    {
+      "rank": 22701,
+      "marks": 85
+    },
+    {
+      "rank": 22801,
+      "marks": 85
+    },
+    {
+      "rank": 22901,
+      "marks": 85
+    },
+    {
+      "rank": 23001,
+      "marks": 85
+    },
+    {
+      "rank": 23101,
+      "marks": 84
+    },
+    {
+      "rank": 23201,
+      "marks": 84
+    },
+    {
+      "rank": 23301,
+      "marks": 84
+    },
+    {
+      "rank": 23401,
+      "marks": 84
+    },
+    {
+      "rank": 23501,
+      "marks": 84
+    },
+    {
+      "rank": 23601,
+      "marks": 84
+    },
+    {
+      "rank": 23701,
+      "marks": 83
+    },
+    {
+      "rank": 23801,
+      "marks": 83
+    },
+    {
+      "rank": 23901,
+      "marks": 83
+    },
+    {
+      "rank": 24001,
+      "marks": 83
+    },
+    {
+      "rank": 24101,
+      "marks": 83
+    },
+    {
+      "rank": 24201,
+      "marks": 83
+    },
+    {
+      "rank": 24301,
+      "marks": 82
+    },
+    {
+      "rank": 24401,
+      "marks": 82
+    },
+    {
+      "rank": 24501,
+      "marks": 82
+    },
+    {
+      "rank": 24601,
+      "marks": 82
+    },
+    {
+      "rank": 24701,
+      "marks": 82
+    },
+    {
+      "rank": 24801,
+      "marks": 82
+    },
+    {
+      "rank": 24901,
+      "marks": 82
+    },
+    {
+      "rank": 25001,
+      "marks": 81
+    },
+    {
+      "rank": 25101,
+      "marks": 81
+    },
+    {
+      "rank": 25201,
+      "marks": 81
+    },
+    {
+      "rank": 25301,
+      "marks": 81
+    },
+    {
+      "rank": 25401,
+      "marks": 81
+    },
+    {
+      "rank": 25501,
+      "marks": 81
+    },
+    {
+      "rank": 25601,
+      "marks": 81
+    },
+    {
+      "rank": 25701,
+      "marks": 80
+    },
+    {
+      "rank": 25801,
+      "marks": 80
+    },
+    {
+      "rank": 25901,
+      "marks": 80
+    },
+    {
+      "rank": 26001,
+      "marks": 80
+    },
+    {
+      "rank": 26101,
+      "marks": 80
+    },
+    {
+      "rank": 26201,
+      "marks": 80
+    },
+    {
+      "rank": 26301,
+      "marks": 79
+    },
+    {
+      "rank": 26401,
+      "marks": 79
+    },
+    {
+      "rank": 26501,
+      "marks": 79
+    },
+    {
+      "rank": 26601,
+      "marks": 79
+    },
+    {
+      "rank": 26701,
+      "marks": 79
+    },
+    {
+      "rank": 26801,
+      "marks": 79
+    },
+    {
+      "rank": 26901,
+      "marks": 79
+    },
+    {
+      "rank": 27001,
+      "marks": 78
+    },
+    {
+      "rank": 27101,
+      "marks": 78
+    },
+    {
+      "rank": 27201,
+      "marks": 78
+    },
+    {
+      "rank": 27301,
+      "marks": 78
+    },
+    {
+      "rank": 27401,
+      "marks": 78
+    },
+    {
+      "rank": 27501,
+      "marks": 78
+    },
+    {
+      "rank": 27601,
+      "marks": 78
+    },
+    {
+      "rank": 27701,
+      "marks": 77
+    },
+    {
+      "rank": 27801,
+      "marks": 77
+    },
+    {
+      "rank": 27901,
+      "marks": 77
+    },
+    {
+      "rank": 28001,
+      "marks": 77
+    },
+    {
+      "rank": 28101,
+      "marks": 77
+    },
+    {
+      "rank": 28201,
+      "marks": 77
+    },
+    {
+      "rank": 28301,
+      "marks": 77
+    },
+    {
+      "rank": 28402,
+      "marks": 76
+    },
+    {
+      "rank": 28501,
+      "marks": 76
+    },
+    {
+      "rank": 28601,
+      "marks": 76
+    },
+    {
+      "rank": 28701,
+      "marks": 76
+    },
+    {
+      "rank": 28801,
+      "marks": 76
+    },
+    {
+      "rank": 28901,
+      "marks": 76
+    },
+    {
+      "rank": 29001,
+      "marks": 76
+    },
+    {
+      "rank": 29101,
+      "marks": 76
+    },
+    {
+      "rank": 29201,
+      "marks": 75
+    },
+    {
+      "rank": 29301,
+      "marks": 75
+    },
+    {
+      "rank": 29401,
+      "marks": 75
+    },
+    {
+      "rank": 29501,
+      "marks": 75
+    },
+    {
+      "rank": 29601,
+      "marks": 75
+    },
+    {
+      "rank": 29701,
+      "marks": 75
+    },
+    {
+      "rank": 29801,
+      "marks": 75
+    },
+    {
+      "rank": 29901,
+      "marks": 74
+    },
+    {
+      "rank": 30001,
+      "marks": 74
+    },
+    {
+      "rank": 30101,
+      "marks": 74
+    },
+    {
+      "rank": 30201,
+      "marks": 74
+    },
+    {
+      "rank": 30301,
+      "marks": 74
+    },
+    {
+      "rank": 30401,
+      "marks": 74
+    },
+    {
+      "rank": 30501,
+      "marks": 74
+    },
+    {
+      "rank": 30601,
+      "marks": 73
+    },
+    {
+      "rank": 30701,
+      "marks": 73
+    },
+    {
+      "rank": 30801,
+      "marks": 73
+    },
+    {
+      "rank": 30901,
+      "marks": 73
+    },
+    {
+      "rank": 31001,
+      "marks": 73
+    },
+    {
+      "rank": 31101,
+      "marks": 73
+    },
+    {
+      "rank": 31201,
+      "marks": 73
+    },
+    {
+      "rank": 31301,
+      "marks": 73
+    },
+    {
+      "rank": 31401,
+      "marks": 72
+    },
+    {
+      "rank": 31501,
+      "marks": 72
+    },
+    {
+      "rank": 31601,
+      "marks": 72
+    },
+    {
+      "rank": 31701,
+      "marks": 72
+    },
+    {
+      "rank": 31801,
+      "marks": 72
+    },
+    {
+      "rank": 31901,
+      "marks": 72
+    },
+    {
+      "rank": 32001,
+      "marks": 72
+    },
+    {
+      "rank": 32101,
+      "marks": 72
+    },
+    {
+      "rank": 32201,
+      "marks": 71
+    },
+    {
+      "rank": 32301,
+      "marks": 71
+    },
+    {
+      "rank": 32401,
+      "marks": 71
+    },
+    {
+      "rank": 32501,
+      "marks": 71
+    },
+    {
+      "rank": 32601,
+      "marks": 71
+    },
+    {
+      "rank": 32701,
+      "marks": 71
+    },
+    {
+      "rank": 32801,
+      "marks": 71
+    },
+    {
+      "rank": 32901,
+      "marks": 71
+    },
+    {
+      "rank": 33101,
+      "marks": 70
+    },
+    {
+      "rank": 33201,
+      "marks": 70
+    },
+    {
+      "rank": 33301,
+      "marks": 70
+    },
+    {
+      "rank": 33401,
+      "marks": 70
+    },
+    {
+      "rank": 33501,
+      "marks": 70
+    },
+    {
+      "rank": 33601,
+      "marks": 70
+    },
+    {
+      "rank": 33701,
+      "marks": 70
+    },
+    {
+      "rank": 33801,
+      "marks": 70
+    }
+  ],
+  "OBC-NCL": [
+    {
+      "rank": 1,
+      "marks": 307
+    },
+    {
+      "rank": 101,
+      "marks": 222
+    },
+    {
+      "rank": 201,
+      "marks": 198
+    },
+    {
+      "rank": 301,
+      "marks": 185
+    },
+    {
+      "rank": 401,
+      "marks": 173
+    },
+    {
+      "rank": 501,
+      "marks": 166
+    },
+    {
+      "rank": 601,
+      "marks": 159
+    },
+    {
+      "rank": 701,
+      "marks": 153
+    },
+    {
+      "rank": 801,
+      "marks": 149
+    },
+    {
+      "rank": 901,
+      "marks": 145
+    },
+    {
+      "rank": 1001,
+      "marks": 141
+    },
+    {
+      "rank": 1101,
+      "marks": 138
+    },
+    {
+      "rank": 1201,
+      "marks": 136
+    },
+    {
+      "rank": 1301,
+      "marks": 134
+    },
+    {
+      "rank": 1401,
+      "marks": 131
+    },
+    {
+      "rank": 1501,
+      "marks": 129
+    },
+    {
+      "rank": 1601,
+      "marks": 127
+    },
+    {
+      "rank": 1701,
+      "marks": 125
+    },
+    {
+      "rank": 1801,
+      "marks": 124
+    },
+    {
+      "rank": 1901,
+      "marks": 122
+    },
+    {
+      "rank": 2001,
+      "marks": 121
+    },
+    {
+      "rank": 2101,
+      "marks": 119
+    },
+    {
+      "rank": 2201,
+      "marks": 118
+    },
+    {
+      "rank": 2301,
+      "marks": 116
+    },
+    {
+      "rank": 2401,
+      "marks": 115
+    },
+    {
+      "rank": 2501,
+      "marks": 114
+    },
+    {
+      "rank": 2601,
+      "marks": 113
+    },
+    {
+      "rank": 2701,
+      "marks": 111
+    },
+    {
+      "rank": 2801,
+      "marks": 110
+    },
+    {
+      "rank": 2901,
+      "marks": 109
+    },
+    {
+      "rank": 3001,
+      "marks": 108
+    },
+    {
+      "rank": 3101,
+      "marks": 107
+    },
+    {
+      "rank": 3201,
+      "marks": 106
+    },
+    {
+      "rank": 3301,
+      "marks": 105
+    },
+    {
+      "rank": 3401,
+      "marks": 104
+    },
+    {
+      "rank": 3501,
+      "marks": 103
+    },
+    {
+      "rank": 3601,
+      "marks": 102
+    },
+    {
+      "rank": 3701,
+      "marks": 102
+    },
+    {
+      "rank": 3801,
+      "marks": 101
+    },
+    {
+      "rank": 3901,
+      "marks": 100
+    },
+    {
+      "rank": 4001,
+      "marks": 99
+    },
+    {
+      "rank": 4101,
+      "marks": 98
+    },
+    {
+      "rank": 4201,
+      "marks": 98
+    },
+    {
+      "rank": 4301,
+      "marks": 97
+    },
+    {
+      "rank": 4401,
+      "marks": 96
+    },
+    {
+      "rank": 4501,
+      "marks": 95
+    },
+    {
+      "rank": 4601,
+      "marks": 95
+    },
+    {
+      "rank": 4701,
+      "marks": 94
+    },
+    {
+      "rank": 4801,
+      "marks": 94
+    },
+    {
+      "rank": 4901,
+      "marks": 93
+    },
+    {
+      "rank": 5001,
+      "marks": 93
+    },
+    {
+      "rank": 5101,
+      "marks": 92
+    },
+    {
+      "rank": 5201,
+      "marks": 91
+    },
+    {
+      "rank": 5301,
+      "marks": 91
+    },
+    {
+      "rank": 5401,
+      "marks": 90
+    },
+    {
+      "rank": 5501,
+      "marks": 90
+    },
+    {
+      "rank": 5601,
+      "marks": 89
+    },
+    {
+      "rank": 5701,
+      "marks": 88
+    },
+    {
+      "rank": 5801,
+      "marks": 88
+    },
+    {
+      "rank": 5901,
+      "marks": 87
+    },
+    {
+      "rank": 6001,
+      "marks": 87
+    },
+    {
+      "rank": 6101,
+      "marks": 86
+    },
+    {
+      "rank": 6201,
+      "marks": 86
+    },
+    {
+      "rank": 6301,
+      "marks": 85
+    },
+    {
+      "rank": 6401,
+      "marks": 85
+    },
+    {
+      "rank": 6501,
+      "marks": 84
+    },
+    {
+      "rank": 6601,
+      "marks": 84
+    },
+    {
+      "rank": 6701,
+      "marks": 83
+    },
+    {
+      "rank": 6801,
+      "marks": 83
+    },
+    {
+      "rank": 6901,
+      "marks": 82
+    },
+    {
+      "rank": 7001,
+      "marks": 82
+    },
+    {
+      "rank": 7101,
+      "marks": 81
+    },
+    {
+      "rank": 7201,
+      "marks": 81
+    },
+    {
+      "rank": 7301,
+      "marks": 80
+    },
+    {
+      "rank": 7401,
+      "marks": 80
+    },
+    {
+      "rank": 7501,
+      "marks": 80
+    },
+    {
+      "rank": 7601,
+      "marks": 79
+    },
+    {
+      "rank": 7701,
+      "marks": 79
+    },
+    {
+      "rank": 7801,
+      "marks": 78
+    },
+    {
+      "rank": 7901,
+      "marks": 78
+    },
+    {
+      "rank": 8001,
+      "marks": 77
+    },
+    {
+      "rank": 8101,
+      "marks": 77
+    },
+    {
+      "rank": 8201,
+      "marks": 77
+    },
+    {
+      "rank": 8301,
+      "marks": 76
+    },
+    {
+      "rank": 8401,
+      "marks": 76
+    },
+    {
+      "rank": 8501,
+      "marks": 76
+    },
+    {
+      "rank": 8601,
+      "marks": 75
+    },
+    {
+      "rank": 8701,
+      "marks": 75
+    },
+    {
+      "rank": 8801,
+      "marks": 74
+    },
+    {
+      "rank": 8901,
+      "marks": 74
+    },
+    {
+      "rank": 9001,
+      "marks": 74
+    },
+    {
+      "rank": 9101,
+      "marks": 73
+    },
+    {
+      "rank": 9201,
+      "marks": 73
+    },
+    {
+      "rank": 9301,
+      "marks": 73
+    },
+    {
+      "rank": 9401,
+      "marks": 72
+    },
+    {
+      "rank": 9501,
+      "marks": 72
+    },
+    {
+      "rank": 9601,
+      "marks": 72
+    },
+    {
+      "rank": 9701,
+      "marks": 71
+    },
+    {
+      "rank": 9801,
+      "marks": 71
+    },
+    {
+      "rank": 9901,
+      "marks": 71
+    },
+    {
+      "rank": 10001,
+      "marks": 70
+    },
+    {
+      "rank": 10101,
+      "marks": 70
+    },
+    {
+      "rank": 10201,
+      "marks": 70
+    },
+    {
+      "rank": 10301,
+      "marks": 69
+    },
+    {
+      "rank": 10401,
+      "marks": 69
+    },
+    {
+      "rank": 10501,
+      "marks": 69
+    },
+    {
+      "rank": 10601,
+      "marks": 68
+    },
+    {
+      "rank": 10701,
+      "marks": 68
+    },
+    {
+      "rank": 10801,
+      "marks": 68
+    },
+    {
+      "rank": 10901,
+      "marks": 67
+    },
+    {
+      "rank": 11001,
+      "marks": 67
+    },
+    {
+      "rank": 11101,
+      "marks": 67
+    },
+    {
+      "rank": 11201,
+      "marks": 67
+    },
+    {
+      "rank": 11301,
+      "marks": 66
+    },
+    {
+      "rank": 11401,
+      "marks": 66
+    },
+    {
+      "rank": 11501,
+      "marks": 66
+    },
+    {
+      "rank": 11601,
+      "marks": 65
+    },
+    {
+      "rank": 11701,
+      "marks": 65
+    },
+    {
+      "rank": 11801,
+      "marks": 65
+    },
+    {
+      "rank": 11901,
+      "marks": 65
+    },
+    {
+      "rank": 12001,
+      "marks": 64
+    },
+    {
+      "rank": 12101,
+      "marks": 64
+    },
+    {
+      "rank": 12301,
+      "marks": 63
+    },
+    {
+      "rank": 12401,
+      "marks": 63
+    },
+    {
+      "rank": 12501,
+      "marks": 63
+    },
+    {
+      "rank": 12601,
+      "marks": 63
+    }
+  ],
+  "EWS": [
+    {
+      "rank": 1,
+      "marks": 306
+    },
+    {
+      "rank": 101,
+      "marks": 196
+    },
+    {
+      "rank": 201,
+      "marks": 175
+    },
+    {
+      "rank": 301,
+      "marks": 160
+    },
+    {
+      "rank": 401,
+      "marks": 151
+    },
+    {
+      "rank": 501,
+      "marks": 144
+    },
+    {
+      "rank": 601,
+      "marks": 138
+    },
+    {
+      "rank": 701,
+      "marks": 134
+    },
+    {
+      "rank": 801,
+      "marks": 129
+    },
+    {
+      "rank": 901,
+      "marks": 126
+    },
+    {
+      "rank": 1001,
+      "marks": 123
+    },
+    {
+      "rank": 1101,
+      "marks": 120
+    },
+    {
+      "rank": 1201,
+      "marks": 117
+    },
+    {
+      "rank": 1301,
+      "marks": 115
+    },
+    {
+      "rank": 1401,
+      "marks": 113
+    },
+    {
+      "rank": 1501,
+      "marks": 110
+    },
+    {
+      "rank": 1601,
+      "marks": 109
+    },
+    {
+      "rank": 1701,
+      "marks": 107
+    },
+    {
+      "rank": 1801,
+      "marks": 105
+    },
+    {
+      "rank": 1901,
+      "marks": 103
+    },
+    {
+      "rank": 2001,
+      "marks": 101
+    },
+    {
+      "rank": 2101,
+      "marks": 100
+    },
+    {
+      "rank": 2201,
+      "marks": 98
+    },
+    {
+      "rank": 2301,
+      "marks": 97
+    },
+    {
+      "rank": 2401,
+      "marks": 96
+    },
+    {
+      "rank": 2501,
+      "marks": 94
+    },
+    {
+      "rank": 2601,
+      "marks": 93
+    },
+    {
+      "rank": 2701,
+      "marks": 92
+    },
+    {
+      "rank": 2801,
+      "marks": 91
+    },
+    {
+      "rank": 2901,
+      "marks": 89
+    },
+    {
+      "rank": 3001,
+      "marks": 88
+    },
+    {
+      "rank": 3101,
+      "marks": 87
+    },
+    {
+      "rank": 3201,
+      "marks": 86
+    },
+    {
+      "rank": 3301,
+      "marks": 85
+    },
+    {
+      "rank": 3401,
+      "marks": 84
+    },
+    {
+      "rank": 3501,
+      "marks": 84
+    },
+    {
+      "rank": 3601,
+      "marks": 83
+    },
+    {
+      "rank": 3701,
+      "marks": 82
+    },
+    {
+      "rank": 3801,
+      "marks": 81
+    },
+    {
+      "rank": 3901,
+      "marks": 80
+    },
+    {
+      "rank": 4001,
+      "marks": 79
+    },
+    {
+      "rank": 4101,
+      "marks": 78
+    },
+    {
+      "rank": 4201,
+      "marks": 78
+    },
+    {
+      "rank": 4301,
+      "marks": 77
+    },
+    {
+      "rank": 4401,
+      "marks": 76
+    },
+    {
+      "rank": 4501,
+      "marks": 75
+    },
+    {
+      "rank": 4601,
+      "marks": 74
+    },
+    {
+      "rank": 4701,
+      "marks": 74
+    },
+    {
+      "rank": 4801,
+      "marks": 73
+    },
+    {
+      "rank": 4901,
+      "marks": 72
+    },
+    {
+      "rank": 5001,
+      "marks": 72
+    },
+    {
+      "rank": 5101,
+      "marks": 71
+    },
+    {
+      "rank": 5201,
+      "marks": 70
+    },
+    {
+      "rank": 5301,
+      "marks": 70
+    },
+    {
+      "rank": 5401,
+      "marks": 69
+    },
+    {
+      "rank": 5501,
+      "marks": 68
+    },
+    {
+      "rank": 5601,
+      "marks": 68
+    },
+    {
+      "rank": 5701,
+      "marks": 67
+    },
+    {
+      "rank": 5801,
+      "marks": 67
+    },
+    {
+      "rank": 5901,
+      "marks": 66
+    },
+    {
+      "rank": 6001,
+      "marks": 65
+    },
+    {
+      "rank": 6101,
+      "marks": 65
+    },
+    {
+      "rank": 6201,
+      "marks": 64
+    },
+    {
+      "rank": 6401,
+      "marks": 63
+    }
+  ],
+  "SC": [
+    {
+      "rank": 1,
+      "marks": 287
+    },
+    {
+      "rank": 101,
+      "marks": 146
+    },
+    {
+      "rank": 201,
+      "marks": 124
+    },
+    {
+      "rank": 301,
+      "marks": 111
+    },
+    {
+      "rank": 401,
+      "marks": 103
+    },
+    {
+      "rank": 501,
+      "marks": 96
+    },
+    {
+      "rank": 601,
+      "marks": 91
+    },
+    {
+      "rank": 701,
+      "marks": 87
+    },
+    {
+      "rank": 801,
+      "marks": 83
+    },
+    {
+      "rank": 901,
+      "marks": 80
+    },
+    {
+      "rank": 1001,
+      "marks": 77
+    },
+    {
+      "rank": 1101,
+      "marks": 75
+    },
+    {
+      "rank": 1201,
+      "marks": 73
+    },
+    {
+      "rank": 1301,
+      "marks": 71
+    },
+    {
+      "rank": 1401,
+      "marks": 69
+    },
+    {
+      "rank": 1501,
+      "marks": 67
+    },
+    {
+      "rank": 1601,
+      "marks": 66
+    },
+    {
+      "rank": 1701,
+      "marks": 65
+    },
+    {
+      "rank": 1801,
+      "marks": 63
+    },
+    {
+      "rank": 1901,
+      "marks": 62
+    },
+    {
+      "rank": 2001,
+      "marks": 61
+    },
+    {
+      "rank": 2101,
+      "marks": 60
+    },
+    {
+      "rank": 2201,
+      "marks": 58
+    },
+    {
+      "rank": 2301,
+      "marks": 58
+    },
+    {
+      "rank": 2401,
+      "marks": 56
+    },
+    {
+      "rank": 2501,
+      "marks": 55
+    },
+    {
+      "rank": 2601,
+      "marks": 55
+    },
+    {
+      "rank": 2701,
+      "marks": 54
+    },
+    {
+      "rank": 2801,
+      "marks": 53
+    },
+    {
+      "rank": 2901,
+      "marks": 52
+    },
+    {
+      "rank": 3001,
+      "marks": 51
+    },
+    {
+      "rank": 3101,
+      "marks": 50
+    },
+    {
+      "rank": 3201,
+      "marks": 50
+    },
+    {
+      "rank": 3301,
+      "marks": 49
+    },
+    {
+      "rank": 3401,
+      "marks": 48
+    },
+    {
+      "rank": 3501,
+      "marks": 47
+    },
+    {
+      "rank": 3601,
+      "marks": 47
+    },
+    {
+      "rank": 3701,
+      "marks": 46
+    },
+    {
+      "rank": 3801,
+      "marks": 46
+    },
+    {
+      "rank": 3901,
+      "marks": 45
+    },
+    {
+      "rank": 4001,
+      "marks": 44
+    },
+    {
+      "rank": 4101,
+      "marks": 44
+    },
+    {
+      "rank": 4201,
+      "marks": 43
+    },
+    {
+      "rank": 4301,
+      "marks": 43
+    },
+    {
+      "rank": 4401,
+      "marks": 42
+    },
+    {
+      "rank": 4501,
+      "marks": 42
+    },
+    {
+      "rank": 4601,
+      "marks": 41
+    },
+    {
+      "rank": 4701,
+      "marks": 41
+    },
+    {
+      "rank": 4801,
+      "marks": 40
+    },
+    {
+      "rank": 4901,
+      "marks": 40
+    },
+    {
+      "rank": 5001,
+      "marks": 39
+    },
+    {
+      "rank": 5101,
+      "marks": 39
+    },
+    {
+      "rank": 5201,
+      "marks": 38
+    },
+    {
+      "rank": 5301,
+      "marks": 38
+    },
+    {
+      "rank": 5401,
+      "marks": 37
+    },
+    {
+      "rank": 5501,
+      "marks": 37
+    },
+    {
+      "rank": 5601,
+      "marks": 37
+    },
+    {
+      "rank": 5701,
+      "marks": 36
+    },
+    {
+      "rank": 5801,
+      "marks": 36
+    },
+    {
+      "rank": 5901,
+      "marks": 35
+    },
+    {
+      "rank": 6001,
+      "marks": 35
+    }
+  ],
+  "ST": [
+    {
+      "rank": 1,
+      "marks": 292
+    },
+    {
+      "rank": 101,
+      "marks": 105
+    },
+    {
+      "rank": 201,
+      "marks": 88
+    },
+    {
+      "rank": 301,
+      "marks": 77
+    },
+    {
+      "rank": 401,
+      "marks": 70
+    },
+    {
+      "rank": 501,
+      "marks": 64
+    },
+    {
+      "rank": 601,
+      "marks": 60
+    },
+    {
+      "rank": 701,
+      "marks": 57
+    },
+    {
+      "rank": 801,
+      "marks": 54
+    },
+    {
+      "rank": 901,
+      "marks": 52
+    },
+    {
+      "rank": 1001,
+      "marks": 50
+    },
+    {
+      "rank": 1101,
+      "marks": 48
+    },
+    {
+      "rank": 1201,
+      "marks": 46
+    },
+    {
+      "rank": 1301,
+      "marks": 45
+    },
+    {
+      "rank": 1401,
+      "marks": 43
+    },
+    {
+      "rank": 1501,
+      "marks": 42
+    },
+    {
+      "rank": 1601,
+      "marks": 41
+    },
+    {
+      "rank": 1701,
+      "marks": 39
+    },
+    {
+      "rank": 1801,
+      "marks": 38
+    },
+    {
+      "rank": 1901,
+      "marks": 37
+    },
+    {
+      "rank": 2001,
+      "marks": 36
+    },
+    {
+      "rank": 2101,
+      "marks": 35
+    }
+  ]
+}
