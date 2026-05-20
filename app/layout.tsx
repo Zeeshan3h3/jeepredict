@@ -19,6 +19,9 @@ export const metadata: Metadata = {
       'Free JEE Advanced rank predictor with personalized college matching across IITs, NITs, and IIITs.',
     type: 'website',
   },
+  verification: {
+    google: 'jun8GHqP-CkDPssSMXkIeF1mxkSbkyab43Ghdicjmf0',
+  },
 }
 
 export default function RootLayout({
