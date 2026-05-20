@@ -1,0 +1,43 @@
+{
+  "name":             "JEEPredict 2026",
+  "short_name":       "JEEPredict",
+  "description":      "Free JEE Advanced 2026 Rank Predictor",
+  "start_url":        "/",
+  "display":          "standalone",
+  "background_color": "#0F1B4C",
+  "theme_color":      "#FF6B35",
+  "orientation":      "portrait-primary",
+  "scope":            "/",
+  "lang":             "en-IN",
+  "categories":       ["education", "utilities"],
+  "icons": [
+    {
+      "src":     "/icon-192.png",
+      "sizes":   "192x192",
+      "type":    "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src":     "/icon-512.png",
+      "sizes":   "512x512",
+      "type":    "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src":           "/screenshot-mobile.png",
+      "sizes":         "390x844",
+      "type":          "image/png",
+      "form_factor":   "narrow",
+      "label":         "JEEPredict rank predictor on mobile"
+    },
+    {
+      "src":           "/screenshot-desktop.png",
+      "sizes":         "1280x800",
+      "type":          "image/png",
+      "form_factor":   "wide",
+      "label":         "JEEPredict rank predictor on desktop"
+    }
+  ]
+}

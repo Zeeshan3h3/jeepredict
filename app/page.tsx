@@ -146,6 +146,90 @@ export default function Home() {
     }
   }
 
+  const webAppSchema = {
+    "@context":          "https://schema.org",
+    "@type":             "WebApplication",
+    "name":              "JEEPredict 2026 — JEE Advanced Rank Predictor",
+    "url":               "https://jeepredict.in",
+    "description":       "Free JEE Advanced 2026 rank predictor. Enter your marks and get your predicted rank and top IIT, NIT, IIIT college matches based on 2025 JoSAA cutoff data.",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem":   "Web Browser",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage":        "en-IN",
+    "isAccessibleForFree": true,
+    "offers": {
+      "@type":    "Offer",
+      "price":    "0",
+      "priceCurrency": "INR"
+    },
+    "audience": {
+      "@type":        "EducationalAudience",
+      "educationalRole": "student"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name":  "JEEPredict",
+      "url":   "https://jeepredict.in"
+    },
+    "featureList": [
+      "JEE Advanced rank prediction from marks",
+      "IIT college match based on rank",
+      "NIT college match based on rank",
+      "IIIT college match based on rank",
+      "Category-wise rank prediction (GEN, OBC-NCL, EWS, SC, ST)",
+      "Based on 2025 JoSAA closing ranks",
+      "Dream, Realistic and Safe college buckets",
+      "Free personalized choice filling PDF"
+    ]
+  }
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type":    "FAQPage",
+    "mainEntity": [
+      {
+        "@type":          "Question",
+        "name":           "How accurate is the JEE Advanced rank prediction?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text":  "JEEPredict uses official 2025 JEE Advanced marks vs rank data with linear interpolation. The predicted rank is typically accurate within ±5% of the actual rank."
+        }
+      },
+      {
+        "@type":          "Question",
+        "name":           "Which year's JoSAA data is used for college matches?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text":  "College matches are based on 2025 JoSAA closing ranks — the most recent officially published cutoff data."
+        }
+      },
+      {
+        "@type":          "Question",
+        "name":           "Does JEEPredict work for all categories?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text":  "Yes. JEEPredict supports all major categories: GEN, OBC-NCL, EWS, SC, and ST. Each has dedicated rank data from JEE Advanced 2025."
+        }
+      },
+      {
+        "@type":          "Question",
+        "name":           "What is included in the full college list?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text":  "The free predictor shows your top 10 college matches. The full list includes 200+ colleges sorted by your rank with a personalized JoSAA choice filling PDF — unlocked free by entering your WhatsApp number."
+        }
+      },
+      {
+        "@type":          "Question",
+        "name":           "Is JEEPredict affiliated with JEE Advanced or JoSAA?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text":  "No. JEEPredict is an independent free tool. Always refer to the official JoSAA website (josaa.nic.in) for final cutoffs and admission decisions."
+        }
+      }
+    ]
+  }
+
   return (
     <>
       <Navbar />
@@ -365,6 +449,14 @@ export default function Home() {
           gender: formInput.gender,
           predicted_rank: result.displayRank,
         } : undefined}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
     </>
   )
