@@ -16,43 +16,6 @@ interface RankResultProps {
   marks?: number
 }
 
-const tierConfig = {
-  dream: {
-    label: 'Dream Colleges',
-    dotClass: 'bg-purple-500',
-    labelClass: 'text-purple-700',
-    badgeBg: 'bg-purple-50',
-    badgeText: 'text-purple-600',
-    btnBorder: 'border-purple-200 hover:border-purple-400',
-    btnText: 'text-purple-600',
-    btnHoverBg: 'hover:bg-purple-50',
-    tierName: 'Dream',
-  },
-  realistic: {
-    label: 'Realistic Matches',
-    dotClass: 'bg-amber-500',
-    labelClass: 'text-amber-700',
-    badgeBg: 'bg-amber-50',
-    badgeText: 'text-amber-600',
-    btnBorder: 'border-amber-200 hover:border-amber-400',
-    btnText: 'text-amber-600',
-    btnHoverBg: 'hover:bg-amber-50',
-    tierName: 'Realistic',
-  },
-  safe: {
-    label: 'Safe Admits',
-    dotClass: 'bg-green-500',
-    labelClass: 'text-green-700',
-    badgeBg: 'bg-green-50',
-    badgeText: 'text-green-600',
-    btnBorder: 'border-green-200 hover:border-green-400',
-    btnText: 'text-green-600',
-    btnHoverBg: 'hover:bg-green-50',
-    tierName: 'Safe',
-  },
-} as const
-
-const PREVIEW_COUNT = 3
 
 export default function RankResult({
   displayRank,
@@ -68,11 +31,9 @@ export default function RankResult({
   const [loading, setLoading] = useState(false)
 
   // Per-tier expansion state
-  const [expanded, setExpanded] = useState<Record<string, boolean>>({
-    dream: false,
-    realistic: false,
-    safe: false,
-  })
+  const [showAllDream, setShowAllDream] = useState(false)
+  const [showAllRealistic, setShowAllRealistic] = useState(false)
+  const [showAllSafe, setShowAllSafe] = useState(false)
 
   // Refs for scroll behavior
   const sectionRefs = useRef<Record<string, HTMLDivElement | null>>({
@@ -83,7 +44,9 @@ export default function RankResult({
 
   // Reset expansion when colleges change (new prediction)
   const resetExpansion = useCallback(() => {
-    setExpanded({ dream: false, realistic: false, safe: false })
+    setShowAllDream(false)
+    setShowAllRealistic(false)
+    setShowAllSafe(false)
   }, [])
 
   // Sync prop changes (e.g. from new prediction inputs)
@@ -127,7 +90,6 @@ export default function RankResult({
   const realistic = collegesList.filter(c => c.tier === 'realistic')
   const safe = collegesList.filter(c => c.tier === 'safe')
 
-  const tierArrays: Record<string, CollegeMatch[]> = { dream, realistic, safe }
 
   // NOTE: scroll logic is inlined in onClick handlers below
   // to satisfy react-hooks/refs lint rule (refs must only be
@@ -273,80 +235,122 @@ export default function RankResult({
           </div>
         )}
 
-        {/* ── Tier sections with expand/collapse ── */}
-        {!loading && (['dream', 'realistic', 'safe'] as const).map(tier => {
-          const tierColleges = tierArrays[tier]
-          if (tierColleges.length === 0) return null
-          const cfg = tierConfig[tier]
-          const isExpanded = expanded[tier]
-          const hasMore = tierColleges.length > PREVIEW_COUNT
-          const displayed = isExpanded ? tierColleges : tierColleges.slice(0, PREVIEW_COUNT)
-
-          return (
-            <div
-              key={tier}
-              ref={el => { sectionRefs.current[tier] = el }}
-              className="scroll-mt-4"
-            >
-              {/* Tier header — always shows TOTAL count */}
-              <div className="flex justify-between items-center mb-3 mt-6">
-                <span className={`flex items-center gap-2 font-semibold text-sm ${cfg.labelClass}`}>
-                  <span className={`w-2 h-2 rounded-full inline-block ${cfg.dotClass}`} />
-                  {cfg.label}
-                </span>
-                <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${cfg.badgeBg} ${cfg.badgeText}`}>
-                  {tierColleges.length} college{tierColleges.length !== 1 ? 's' : ''}
-                </span>
-              </div>
-
-              {/* College cards */}
-              <div className="space-y-2">
-                {displayed.map((college, idx) => (
-                  <div
-                    key={college.id}
-                    className={idx >= PREVIEW_COUNT ? 'expand-card' : ''}
-                    style={idx >= PREVIEW_COUNT ? { animationDelay: `${(idx - PREVIEW_COUNT) * 0.04}s` } : undefined}
-                  >
-                    <CollegeCard college={college} rank={idx + 1} />
-                  </div>
-                ))}
-              </div>
-
-              {/* Expand / Collapse button — only if tier has more than PREVIEW_COUNT */}
-              {hasMore && (
-                <div className="flex justify-center mt-3 mb-2">
-                  {!isExpanded ? (
-                    <button
-                      onClick={() => {
-                        setExpanded(prev => ({ ...prev, [tier]: true }))
-                        setTimeout(() => {
-                          sectionRefs.current[tier]?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                        }, 50)
-                      }}
-                      className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold border transition-all cursor-pointer ${cfg.btnBorder} ${cfg.btnText} ${cfg.btnHoverBg} bg-white`}
-                    >
-                      Show all {tierColleges.length} {cfg.tierName} colleges
-                      <ChevronDown size={14} />
-                    </button>
-                  ) : (
-                    <button
-                      onClick={() => {
-                        setExpanded(prev => ({ ...prev, [tier]: false }))
-                        setTimeout(() => {
-                          sectionRefs.current[tier]?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                        }, 50)
-                      }}
-                      className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold border transition-all cursor-pointer ${cfg.btnBorder} ${cfg.btnText} ${cfg.btnHoverBg} bg-white`}
-                    >
-                      Show less
-                      <ChevronUp size={14} />
-                    </button>
-                  )}
-                </div>
-              )}
+        {/* ── Tier: Dream Colleges ── */}
+        {!loading && dream.length > 0 && (
+          <div ref={el => { sectionRefs.current.dream = el }} className="scroll-mt-4">
+            <div className="flex justify-between items-center mb-3 mt-6">
+              <span className="flex items-center gap-2 font-semibold text-sm text-purple-700">
+                <span className="w-2 h-2 rounded-full inline-block bg-purple-500" />
+                Dream Colleges
+              </span>
+              <span className="text-xs px-2 py-0.5 rounded-full font-medium bg-purple-50 text-purple-600">
+                {dream.length} college{dream.length !== 1 ? 's' : ''}
+              </span>
             </div>
-          )
-        })}
+
+            <div className="space-y-2">
+              {(showAllDream ? dream : dream.slice(0, 3)).map((college, idx) => (
+                <div
+                  key={college.id}
+                  className={idx >= 3 ? 'expand-card' : ''}
+                  style={idx >= 3 ? { animationDelay: `${(idx - 3) * 0.04}s` } : undefined}
+                >
+                  <CollegeCard college={college} rank={idx + 1} />
+                </div>
+              ))}
+            </div>
+
+            {dream.length > 3 && (
+              <div className="flex justify-center mt-3 mb-2">
+                <button
+                  onClick={() => setShowAllDream(!showAllDream)}
+                  className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold border transition-all cursor-pointer border-purple-200 hover:border-purple-400 text-purple-600 hover:bg-purple-50 bg-white"
+                >
+                  {showAllDream ? "Show Less" : `Show all ${dream.length} colleges`}
+                  {showAllDream ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+                </button>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* ── Tier: Realistic Matches ── */}
+        {!loading && realistic.length > 0 && (
+          <div ref={el => { sectionRefs.current.realistic = el }} className="scroll-mt-4">
+            <div className="flex justify-between items-center mb-3 mt-6">
+              <span className="flex items-center gap-2 font-semibold text-sm text-amber-700">
+                <span className="w-2 h-2 rounded-full inline-block bg-amber-500" />
+                Realistic Matches
+              </span>
+              <span className="text-xs px-2 py-0.5 rounded-full font-medium bg-amber-50 text-amber-600">
+                {realistic.length} college{realistic.length !== 1 ? 's' : ''}
+              </span>
+            </div>
+
+            <div className="space-y-2">
+              {(showAllRealistic ? realistic : realistic.slice(0, 3)).map((college, idx) => (
+                <div
+                  key={college.id}
+                  className={idx >= 3 ? 'expand-card' : ''}
+                  style={idx >= 3 ? { animationDelay: `${(idx - 3) * 0.04}s` } : undefined}
+                >
+                  <CollegeCard college={college} rank={idx + 1} />
+                </div>
+              ))}
+            </div>
+
+            {realistic.length > 3 && (
+              <div className="flex justify-center mt-3 mb-2">
+                <button
+                  onClick={() => setShowAllRealistic(!showAllRealistic)}
+                  className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold border transition-all cursor-pointer border-amber-200 hover:border-amber-400 text-amber-600 hover:bg-amber-50 bg-white"
+                >
+                  {showAllRealistic ? "Show Less" : `Show all ${realistic.length} colleges`}
+                  {showAllRealistic ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+                </button>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* ── Tier: Safe Admits ── */}
+        {!loading && safe.length > 0 && (
+          <div ref={el => { sectionRefs.current.safe = el }} className="scroll-mt-4">
+            <div className="flex justify-between items-center mb-3 mt-6">
+              <span className="flex items-center gap-2 font-semibold text-sm text-green-700">
+                <span className="w-2 h-2 rounded-full inline-block bg-green-500" />
+                Safe Admits
+              </span>
+              <span className="text-xs px-2 py-0.5 rounded-full font-medium bg-green-50 text-green-600">
+                {safe.length} college{safe.length !== 1 ? 's' : ''}
+              </span>
+            </div>
+
+            <div className="space-y-2">
+              {(showAllSafe ? safe : safe.slice(0, 3)).map((college, idx) => (
+                <div
+                  key={college.id}
+                  className={idx >= 3 ? 'expand-card' : ''}
+                  style={idx >= 3 ? { animationDelay: `${(idx - 3) * 0.04}s` } : undefined}
+                >
+                  <CollegeCard college={college} rank={idx + 1} />
+                </div>
+              ))}
+            </div>
+
+            {safe.length > 3 && (
+              <div className="flex justify-center mt-3 mb-2">
+                <button
+                  onClick={() => setShowAllSafe(!showAllSafe)}
+                  className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold border transition-all cursor-pointer border-green-200 hover:border-green-400 text-green-600 hover:bg-green-50 bg-white"
+                >
+                  {showAllSafe ? "Show Less" : `Show all ${safe.length} colleges`}
+                  {showAllSafe ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+                </button>
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
       {/* ── Part C: Unlock CTA Banner ── */}
