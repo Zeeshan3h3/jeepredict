@@ -36,7 +36,8 @@ export async function POST(request: Request) {
     // Realistic: closing_rank ~ predicted ± range
     // Safe:     closing_rank > worst      (college cutoff above our worst = guaranteed)
     const lowerBound = Math.max(1, Math.round(best * 0.5))
-    const upperBound = Math.round(worst * 2.0)
+    // Ensure upper bound is large enough so top rankers see top branches (e.g. IITB CS)
+    const upperBound = Math.max(Math.round(worst * 2.0), worst + 1500)
 
     // Load data from JSON based on round
     const roundNum = (Number(round) || 1) as RoundNumber
