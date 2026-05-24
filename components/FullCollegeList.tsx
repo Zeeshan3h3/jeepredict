@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 'use client'
 
 import { useState, useEffect } from 'react'
@@ -12,12 +13,14 @@ export interface FiltersState {
   showRealistic: boolean
   showSafe: boolean
   searchQuery: string
+  round: number
 }
 
 interface FullCollegeListProps {
   colleges: CollegeMatch[]
   filters: FiltersState
   loading: boolean
+  onRoundChange?: (round: number) => void
 }
 
 const PAGE_SIZE = 20
@@ -34,7 +37,7 @@ const tierLabel: Record<Tier, string> = {
   safe:      'Safe',
 }
 
-export default function FullCollegeList({ colleges, filters, loading }: FullCollegeListProps) {
+export default function FullCollegeList({ colleges, filters, loading, onRoundChange }: FullCollegeListProps) {
   const [page, setPage] = useState(1)
 
   const filtered = colleges.filter(c => {
@@ -74,6 +77,29 @@ export default function FullCollegeList({ colleges, filters, loading }: FullColl
 
   return (
     <div>
+      {/* JoSAA Round Selection Tabs */}
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-white rounded-2xl border border-[#E2E8F4] p-4 mb-6 shadow-sm">
+        <div>
+          <h3 className="font-bold text-[#0F1B4C] text-sm">Select JoSAA Round</h3>
+          <p className="text-gray-400 text-[11px] mt-0.5">Compare opening and closing ranks across rounds</p>
+        </div>
+        <div className="flex flex-wrap gap-1 bg-gray-100 p-1 rounded-xl w-full sm:w-auto">
+          {[1, 2, 3, 4, 5, 6].map(r => (
+            <button
+              key={r}
+              onClick={() => onRoundChange?.(r)}
+              className={`flex-1 sm:flex-none px-4 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                filters.round === r
+                  ? 'bg-[#0F1B4C] text-white shadow-sm'
+                  : 'text-gray-500 hover:text-[#0F1B4C] hover:bg-gray-200'
+              }`}
+            >
+              Round {r}
+            </button>
+          ))}
+        </div>
+      </div>
+
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <p className="text-gray-400 text-sm">{filtered.length} colleges found</p>

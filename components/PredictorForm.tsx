@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Info } from 'lucide-react'
+import { Info, Lock } from 'lucide-react'
 
 interface PredictorFormProps {
   onSubmit: (input: { totalMarks: number; category: string; gender: string }) => void
@@ -81,6 +81,29 @@ export default function PredictorForm({ onSubmit, isLoading }: PredictorFormProp
       className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-[#E2E8F4]"
       noValidate
     >
+      {/* Exam Selector */}
+      <div className="mb-6">
+        <label className="block font-medium text-[#0F1B4C] text-sm mb-2">
+          Which exam did you appear for?
+        </label>
+        <div className="flex flex-col sm:flex-row gap-3">
+          <button
+            type="button"
+            className="flex-1 rounded-xl px-4 py-3 text-sm font-medium transition cursor-pointer border bg-[#FF6B35] text-white border-[#FF6B35]"
+          >
+            JEE Advanced ✓
+          </button>
+          <button
+            type="button"
+            disabled
+            className="flex-1 rounded-xl px-4 py-3 text-sm font-medium transition border bg-gray-50 text-gray-400 border-gray-200 flex items-center justify-center gap-2 cursor-not-allowed"
+          >
+            <Lock size={14} />
+            JEE Mains (Coming Soon)
+          </button>
+        </div>
+      </div>
+
       {/* Field 1 — Marks */}
       <div className="mb-5">
         <label className="block font-medium text-[#0F1B4C] text-sm mb-0.5">

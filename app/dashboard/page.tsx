@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 'use client'
 
 import { useState, useEffect } from 'react'
@@ -18,6 +19,7 @@ const DEFAULT_FILTERS: FiltersState = {
   showRealistic: true,
   showSafe: true,
   searchQuery: '',
+  round: 1,
 }
 
 /* ── Stat card data ────────────────────────────────────────── */
@@ -37,7 +39,7 @@ export default function DashboardPage() {
   const [collegesLoading, setCollegesLoading] = useState(false)
   const [isSaving, setIsSaving] = useState(false)
 
-  /* fetch college list whenever student data changes */
+  /* fetch college list whenever student data or round changes */
   useEffect(() => {
     if (!student?.marks || !student?.category || !student?.gender) return
     setCollegesLoading(true)
@@ -49,6 +51,7 @@ export default function DashboardPage() {
         category: student.category,
         gender: student.gender,
         limit: 300,
+        round: filters.round,
       }),
     })
       .then(r => r.json())
@@ -57,7 +60,7 @@ export default function DashboardPage() {
         setCollegesLoading(false)
       })
       .catch(() => setCollegesLoading(false))
-  }, [student])
+  }, [student, filters.round])
 
   /* ── Skeleton / loading ── */
   if (studentLoading) {
@@ -188,11 +191,15 @@ export default function DashboardPage() {
           </div>
 
           {/* ── Round data note ─────────────────────────────── */}
-          <div className="bg-amber-50 border border-amber-200 rounded-xl px-4 py-2.5 mb-6 flex items-center gap-2">
-            <span className="text-amber-600 text-sm">ℹ️</span>
-            <p className="text-amber-700 text-xs">
-              <span className="font-semibold">Round 1 data only.</span>{' '}
-              JoSAA 2025 Round 2–5 cutoffs will be added soon. Actual allotment may vary.
+          <div className="bg-blue-50 border border-blue-200 rounded-xl px-4 py-2.5 mb-6 flex items-center gap-2">
+            <span className="text-blue-600 text-sm">ℹ️</span>
+            <p className="text-blue-700 text-xs">
+              <span className="font-semibold">JoSAA 2025 Round {filters.round} Cutoffs:</span>{' '}
+              {filters.round === 1 ? (
+                <span>Round 1 cutoffs are the strictest. Ranks generally slide down in subsequent rounds (Rounds 2–6), increasing your admission chances.</span>
+              ) : (
+                <span>Viewing Round {filters.round} cutoffs. Ranks have expanded from Round 1, showing more realistic final options.</span>
+              )}
             </p>
           </div>
 
@@ -245,7 +252,12 @@ export default function DashboardPage() {
                     <CollegeFilters filters={filters} onChange={setFilters} colleges={colleges} />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <FullCollegeList colleges={colleges} filters={filters} loading={collegesLoading} />
+                    <FullCollegeList
+                      colleges={colleges}
+                      filters={filters}
+                      loading={collegesLoading}
+                      onRoundChange={r => setFilters(prev => ({ ...prev, round: r }))}
+                    />
                   </div>
                 </div>
               )}

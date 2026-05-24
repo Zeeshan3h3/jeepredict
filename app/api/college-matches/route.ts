@@ -1,12 +1,12 @@
 import { NextResponse } from 'next/server'
 import { getRankRange } from '@/lib/rank-lookup'
 import { Category } from '@/types/database'
-import { supabaseAdmin } from '@/lib/supabase-admin'
+import { josaaData, RoundNumber } from '@/data/josaa/iit'
 
 export async function POST(request: Request) {
   try {
     const body = await request.json()
-    const { marks, category, gender, limit = 10 } = body
+    const { marks, category, gender, limit = 10, round = 1 } = body
 
     // Basic validation
     if (typeof marks !== 'number' || marks < 0 || marks > 360) {
@@ -35,33 +35,65 @@ export async function POST(request: Request) {
     // Dream:    closing_rank < predicted  (college cutoff below our rank = harder to get)
     // Realistic: closing_rank ~ predicted ± range
     // Safe:     closing_rank > worst      (college cutoff above our worst = guaranteed)
-    //
-    // We cast a wide net and classify on the fly.
     const lowerBound = Math.max(1, Math.round(best * 0.5))
     const upperBound = Math.round(worst * 2.0)
 
-    const { data: colleges, error } = await supabaseAdmin
-      .from('josaa_cutoffs')
-      .select('id, institute, program, quota, category, gender_pool, opening_rank, closing_rank, year')
-      .eq('category', category)
-      .in('gender_pool', genderPools)
-      .gte('closing_rank', lowerBound)
-      .lte('closing_rank', upperBound)
-      .eq('year', 2025)
-      .order('closing_rank', { ascending: true })
+    // Load data from JSON based on round
+    const roundNum = (Number(round) || 1) as RoundNumber
+    const allRecords = josaaData[roundNum] || []
 
-    if (error) {
-      console.error('college-matches DB error:', error)
-      return NextResponse.json({ error: 'Database error' }, { status: 500 })
-    }
+    const filteredColleges = allRecords.filter(row => {
+      // Filter by category
+      if (row.category !== category) return false
+      // Filter by gender pool
+      if (!genderPools.includes(row.gender_pool)) return false
+      // Filter by closing rank range
+      if (row.closing_rank < lowerBound || row.closing_rank > upperBound) return false
+      return true
+    })
+
+    // Map to the required database shape for frontend compatibility
+    const colleges = filteredColleges.map((row, idx) => ({
+      id: `${roundNum}-${idx}`,
+      institute: row.institute,
+      program: row.program,
+      quota: row.quota,
+      category: row.category,
+      gender_pool: row.gender_pool,
+      opening_rank: row.opening_rank,
+      closing_rank: row.closing_rank,
+      year: 2025,
+      round: roundNum,
+    }))
+
+    // Sort by closing_rank ascending
+    colleges.sort((a, b) => a.closing_rank - b.closing_rank)
 
     const isFullList = limit > 10  // dashboard mode vs free preview mode
+
+    // ── Cross-round enrichment: R1 opening + R6 closing ───────────
+    // Build lookup maps keyed by "institute|program|category|gender_pool"
+    const makeKey = (r: { institute: string; program: string; category: string; gender_pool: string }) =>
+      `${r.institute}|${r.program}|${r.category}|${r.gender_pool}`
+
+    const r1Records = josaaData[1] || []
+    const r6Records = josaaData[6] || []
+
+    const r1Map = new Map<string, number>()
+    for (const r of r1Records) {
+      r1Map.set(makeKey(r), r.opening_rank)
+    }
+
+    const r6Map = new Map<string, number>()
+    for (const r of r6Records) {
+      r6Map.set(makeKey(r), r.closing_rank)
+    }
 
     // ── Tier classification ──────────────────────────────────────
     // dream:     closing_rank < predicted  (cutoff lower than our rank = tougher)
     // realistic: predicted <= closing_rank <= worst
     // safe:      closing_rank > worst
-    const classified = (colleges ?? []).map(college => {
+    const classified = colleges.map(college => {
       let tier: 'dream' | 'realistic' | 'safe'
       const cr = college.closing_rank
       if (cr < predicted) {
@@ -71,7 +103,13 @@ export async function POST(request: Request) {
       } else {
         tier = 'safe'
       }
-      return { ...college, tier }
+      const key = makeKey(college)
+      return {
+        ...college,
+        tier,
+        r1_opening: r1Map.get(key) ?? college.opening_rank,
+        r6_closing: r6Map.get(key) ?? college.closing_rank,
+      }
     })
 
     let results
@@ -80,11 +118,12 @@ export async function POST(request: Request) {
       // Dashboard: return all up to limit
       results = classified.slice(0, limit)
     } else {
-      // Free preview (landing page): cap per tier then take top N
-      const dreamList     = classified.filter(c => c.tier === 'dream').slice(0, 3)
-      const realisticList = classified.filter(c => c.tier === 'realistic').slice(0, 4)
-      const safeList      = classified.filter(c => c.tier === 'safe').slice(0, 3)
-      results = [...dreamList, ...realisticList, ...safeList].slice(0, limit)
+      // Free preview (landing page): return ALL matches grouped by tier
+      // Frontend handles preview/expand logic
+      const dreamList     = classified.filter(c => c.tier === 'dream')
+      const realisticList = classified.filter(c => c.tier === 'realistic')
+      const safeList      = classified.filter(c => c.tier === 'safe')
+      results = [...dreamList, ...realisticList, ...safeList]
     }
 
     return NextResponse.json({ total: results.length, results })

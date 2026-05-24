@@ -10,7 +10,6 @@ interface DashboardNavProps {
 }
 
 export default function DashboardNav({ student }: DashboardNavProps) {
-  const firstName = student?.name?.split(' ')[0] ?? ''
   const initials = student?.name
     ?.split(' ')
     .map(n => n[0])

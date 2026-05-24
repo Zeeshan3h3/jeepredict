@@ -24,7 +24,7 @@ async function main() {
     trim: true,
   });
 
-  const rowsToInsert: any[] = [];
+  const rowsToInsert: Record<string, string | number>[] = [];
 
   for (const record of records) {
     const seatType = record['Seat Type'] || '';

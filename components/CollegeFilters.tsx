@@ -18,6 +18,7 @@ const DEFAULT_FILTERS: FiltersState = {
   showRealistic: true,
   showSafe: true,
   searchQuery: '',
+  round: 1,
 }
 
 const INST_TYPES = ['all', 'IIT', 'NIT', 'IIIT', 'GFTI'] as const
@@ -52,6 +53,20 @@ export default function CollegeFilters({ filters, onChange, colleges = [] }: Col
           onChange={e => onChange({ ...filters, searchQuery: e.target.value })}
           className="w-full border border-[#E2E8F4] rounded-xl px-3 py-2 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] focus:border-transparent transition"
         />
+      </div>
+
+      {/* JoSAA Round */}
+      <div>
+        <label className="block text-xs font-medium text-gray-500 mb-1.5">JoSAA Round</label>
+        <select
+          value={filters.round}
+          onChange={e => onChange({ ...filters, round: Number(e.target.value) })}
+          className="w-full border border-[#E2E8F4] rounded-xl px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] focus:border-transparent transition bg-white appearance-none cursor-pointer"
+        >
+          {[1, 2, 3, 4, 5, 6].map(r => (
+            <option key={r} value={r}>Round {r}</option>
+          ))}
+        </select>
       </div>
 
       {/* Institute type */}

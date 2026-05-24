@@ -167,7 +167,7 @@ export default function MarksVsRankPage({
             into three distinct tiers:
           </p>
           <ul className="list-disc pl-5 mb-4 space-y-2">
-            <li><strong>Dream Colleges:</strong> Top-tier IITs where your expected rank is slightly below or close to the previous year's cutoff, indicating a stretch target.</li>
+            <li><strong>Dream Colleges:</strong> Top-tier IITs where your expected rank is slightly below or close to the previous year&apos;s cutoff, indicating a stretch target.</li>
             <li><strong>Realistic Colleges:</strong> Mid-to-high-tier IITs where your rank aligns comfortably with past trends, giving you a strong chance of admission.</li>
             <li><strong>Safe Colleges:</strong> Stable options where your score significantly exceeds the closing rank, ensuring a guaranteed seat.</li>
           </ul>

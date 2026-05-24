@@ -151,7 +151,7 @@ export default function Home() {
     "@type":             "WebApplication",
     "name":              "JEEPredict 2026 — JEE Advanced Rank Predictor",
     "url":               "https://jeepredict.in",
-    "description":       "Free JEE Advanced 2026 rank predictor. Enter your marks and get your predicted rank and top IIT, NIT, IIIT college matches based on 2025 JoSAA cutoff data.",
+    "description":       "Free JEE Advanced 2026 rank predictor. Enter your marks and get your predicted rank and top IIT college matches based on 2025 JoSAA cutoff data.",
     "applicationCategory": "EducationalApplication",
     "operatingSystem":   "Web Browser",
     "browserRequirements": "Requires JavaScript",
@@ -174,8 +174,6 @@ export default function Home() {
     "featureList": [
       "JEE Advanced rank prediction from marks",
       "IIT college match based on rank",
-      "NIT college match based on rank",
-      "IIIT college match based on rank",
       "Category-wise rank prediction (GEN, OBC-NCL, EWS, SC, ST)",
       "Based on 2025 JoSAA closing ranks",
       "Dream, Realistic and Safe college buckets",
@@ -252,7 +250,7 @@ export default function Home() {
           </h1>
 
           <p className="text-white/70 text-lg md:text-xl max-w-xl mx-auto mb-8">
-            Enter your marks and instantly get your predicted rank + top IIT, NIT &amp; IIIT college
+            Enter your marks and instantly get your predicted rank + top IIT college
             matches. Free. No login. No BS.
           </p>
 
@@ -310,6 +308,7 @@ export default function Home() {
                 gender={formInput!.gender}
                 colleges={colleges ?? []}
                 onUnlockClick={() => setShowModal(true)}
+                marks={formInput!.totalMarks}
               />
             </div>
           )}
@@ -350,7 +349,7 @@ export default function Home() {
                 step: '3',
                 icon: '🎓',
                 title: 'See Your Colleges',
-                body: 'Get dream, realistic, and safe matches across IITs, NITs, and IIITs.',
+                body: 'Get dream, realistic, and safe matches across IITs.',
               },
             ].map(item => (
               <div
@@ -378,7 +377,6 @@ export default function Home() {
             {[
               { number: '50,000+', label: 'Students Predicted' },
               { number: '23', label: 'IITs Covered' },
-              { number: '31', label: 'NITs Covered' },
               { number: '2025', label: 'JoSAA Data Year' },
             ].map(stat => (
               <div key={stat.label} className="text-center">

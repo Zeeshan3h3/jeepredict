@@ -1,8 +1,10 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 'use client'
 
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { CollegeMatch } from '@/types/database'
 import CollegeCard from './CollegeCard'
-import { SearchX, FileText } from 'lucide-react'
+import { SearchX, FileText, ChevronDown, ChevronUp } from 'lucide-react'
 
 interface RankResultProps {
   displayRank: number
@@ -11,6 +13,7 @@ interface RankResultProps {
   gender: string
   colleges: CollegeMatch[]
   onUnlockClick: () => void
+  marks?: number
 }
 
 const tierConfig = {
@@ -20,6 +23,10 @@ const tierConfig = {
     labelClass: 'text-purple-700',
     badgeBg: 'bg-purple-50',
     badgeText: 'text-purple-600',
+    btnBorder: 'border-purple-200 hover:border-purple-400',
+    btnText: 'text-purple-600',
+    btnHoverBg: 'hover:bg-purple-50',
+    tierName: 'Dream',
   },
   realistic: {
     label: 'Realistic Matches',
@@ -27,6 +34,10 @@ const tierConfig = {
     labelClass: 'text-amber-700',
     badgeBg: 'bg-amber-50',
     badgeText: 'text-amber-600',
+    btnBorder: 'border-amber-200 hover:border-amber-400',
+    btnText: 'text-amber-600',
+    btnHoverBg: 'hover:bg-amber-50',
+    tierName: 'Realistic',
   },
   safe: {
     label: 'Safe Admits',
@@ -34,8 +45,14 @@ const tierConfig = {
     labelClass: 'text-green-700',
     badgeBg: 'bg-green-50',
     badgeText: 'text-green-600',
+    btnBorder: 'border-green-200 hover:border-green-400',
+    btnText: 'text-green-600',
+    btnHoverBg: 'hover:bg-green-50',
+    tierName: 'Safe',
   },
 } as const
+
+const PREVIEW_COUNT = 3
 
 export default function RankResult({
   displayRank,
@@ -44,10 +61,77 @@ export default function RankResult({
   gender,
   colleges,
   onUnlockClick,
+  marks,
 }: RankResultProps) {
-  const dream = colleges.filter(c => c.tier === 'dream')
-  const realistic = colleges.filter(c => c.tier === 'realistic')
-  const safe = colleges.filter(c => c.tier === 'safe')
+  const [currentRound, setCurrentRound] = useState<number>(1)
+  const [collegesList, setCollegesList] = useState<CollegeMatch[]>(colleges)
+  const [loading, setLoading] = useState(false)
+
+  // Per-tier expansion state
+  const [expanded, setExpanded] = useState<Record<string, boolean>>({
+    dream: false,
+    realistic: false,
+    safe: false,
+  })
+
+  // Refs for scroll behavior
+  const sectionRefs = useRef<Record<string, HTMLDivElement | null>>({
+    dream: null,
+    realistic: null,
+    safe: null,
+  })
+
+  // Reset expansion when colleges change (new prediction)
+  const resetExpansion = useCallback(() => {
+    setExpanded({ dream: false, realistic: false, safe: false })
+  }, [])
+
+  // Sync prop changes (e.g. from new prediction inputs)
+  useEffect(() => {
+    setCollegesList(colleges)
+    setCurrentRound(1)
+    resetExpansion()
+  }, [colleges, resetExpansion])
+
+  // Fetch updated cutoffs when changing rounds
+  useEffect(() => {
+    if (currentRound === 1) {
+      setCollegesList(colleges)
+      resetExpansion()
+      return
+    }
+    if (marks === undefined) return
+
+    setLoading(true)
+    resetExpansion()
+    fetch('/api/college-matches', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        marks,
+        category,
+        gender,
+        limit: 10,
+        round: currentRound,
+      }),
+    })
+      .then(r => r.json())
+      .then(data => {
+        setCollegesList(data.results ?? [])
+        setLoading(false)
+      })
+      .catch(() => setLoading(false))
+  }, [currentRound, colleges, marks, category, gender, resetExpansion])
+
+  const dream = collegesList.filter(c => c.tier === 'dream')
+  const realistic = collegesList.filter(c => c.tier === 'realistic')
+  const safe = collegesList.filter(c => c.tier === 'safe')
+
+  const tierArrays: Record<string, CollegeMatch[]> = { dream, realistic, safe }
+
+  // NOTE: scroll logic is inlined in onClick handlers below
+  // to satisfy react-hooks/refs lint rule (refs must only be
+  // accessed in event handlers, not in closures)
 
   const genderLabel = gender === 'gender-neutral' ? 'Gender Neutral' : 'Female'
 
@@ -60,6 +144,11 @@ export default function RankResult({
           to   { opacity: 1; transform: translateY(0); }
         }
         .rank-animate { animation: fadeInUp 0.5s ease-out both; }
+        @keyframes expandCardIn {
+          from { opacity: 0; transform: translateY(-8px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        .expand-card { animation: expandCardIn 0.25s ease-out both; }
       `}</style>
 
       <div className="relative bg-[#0F1B4C] rounded-2xl p-8 md:p-12 overflow-hidden">
@@ -75,7 +164,7 @@ export default function RankResult({
         <div className="relative z-10 text-center rank-animate">
           {/* Badge */}
           <span className="inline-block bg-white/10 text-white/80 text-xs px-3 py-1 rounded-full mb-4">
-            🎉 Your Predicted Rank
+            🎉 Predicted JEE Advanced {category === 'GEN' ? 'AIR' : `${category} Rank`}
           </span>
 
           {/* Rank number */}
@@ -127,20 +216,52 @@ export default function RankResult({
       {/* ── Part B: College Matches ── */}
       <div className="mt-8">
         {/* Section header */}
-        <div className="flex justify-between items-center mb-4">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
           <div>
             <h2 className="font-bold text-[#0F1B4C] text-xl">Your College Matches</h2>
-            <p className="text-gray-400 text-xs">Top 10 matches · 2025 JoSAA closing ranks</p>
+            <p className="text-gray-400 text-xs">All matches · 2025 JoSAA closing ranks</p>
           </div>
-          {colleges.length > 0 && (
-            <span className="bg-green-50 text-green-700 text-xs px-2 py-1 rounded-full">
-              {colleges.length} matches found
-            </span>
+          
+          {/* Round Selector Pill bar */}
+          <div className="flex flex-wrap gap-1 bg-gray-100 p-1 rounded-xl w-full sm:w-auto">
+            {[1, 2, 3, 4, 5, 6].map(r => (
+              <button
+                key={r}
+                disabled={loading}
+                onClick={() => setCurrentRound(r)}
+                className={`flex-1 sm:flex-none px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                  currentRound === r
+                    ? 'bg-[#0F1B4C] text-white shadow-sm'
+                    : 'text-gray-500 hover:text-[#0F1B4C] hover:bg-gray-200'
+                }`}
+              >
+                Round {r}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Dynamic Round Disclaimer */}
+        <div className="bg-blue-50 border border-blue-100 rounded-xl p-3.5 mb-6 text-xs text-blue-700 leading-relaxed shadow-sm">
+          <span className="font-semibold block mb-1">💡 JoSAA 2025 Round {currentRound} Cutoff Insights</span>
+          {currentRound === 1 ? (
+            "Round 1 ranks are the most competitive. If a college is listed in 'Dream' or 'Realistic', your actual chances are higher because closing ranks generally expand in later rounds (Rounds 2–6)."
+          ) : (
+            `Currently viewing Round ${currentRound} cutoffs. Ranks slide downwards in later rounds, and Round 6 represents the final seat allotment thresholds.`
           )}
         </div>
 
+        {/* Loading Indicator */}
+        {loading && (
+          <div className="space-y-3 animate-pulse">
+            {[1, 2, 3].map(i => (
+              <div key={i} className="h-20 bg-gray-200 rounded-xl" />
+            ))}
+          </div>
+        )}
+
         {/* Empty state */}
-        {colleges.length === 0 && (
+        {!loading && collegesList.length === 0 && (
           <div className="bg-white rounded-2xl border border-[#E2E8F4] p-10 text-center">
             <SearchX className="mx-auto mb-3 text-gray-300" size={36} />
             <p className="text-[#0F1B4C] font-medium text-sm">
@@ -152,13 +273,22 @@ export default function RankResult({
           </div>
         )}
 
-        {/* Tier sections */}
-        {(['dream', 'realistic', 'safe'] as const).map(tier => {
-          const tierColleges = tier === 'dream' ? dream : tier === 'realistic' ? realistic : safe
+        {/* ── Tier sections with expand/collapse ── */}
+        {!loading && (['dream', 'realistic', 'safe'] as const).map(tier => {
+          const tierColleges = tierArrays[tier]
           if (tierColleges.length === 0) return null
           const cfg = tierConfig[tier]
+          const isExpanded = expanded[tier]
+          const hasMore = tierColleges.length > PREVIEW_COUNT
+          const displayed = isExpanded ? tierColleges : tierColleges.slice(0, PREVIEW_COUNT)
+
           return (
-            <div key={tier}>
+            <div
+              key={tier}
+              ref={el => { sectionRefs.current[tier] = el }}
+              className="scroll-mt-4"
+            >
+              {/* Tier header — always shows TOTAL count */}
               <div className="flex justify-between items-center mb-3 mt-6">
                 <span className={`flex items-center gap-2 font-semibold text-sm ${cfg.labelClass}`}>
                   <span className={`w-2 h-2 rounded-full inline-block ${cfg.dotClass}`} />
@@ -168,11 +298,52 @@ export default function RankResult({
                   {tierColleges.length} college{tierColleges.length !== 1 ? 's' : ''}
                 </span>
               </div>
+
+              {/* College cards */}
               <div className="space-y-2">
-                {tierColleges.map((college, idx) => (
-                  <CollegeCard key={college.id} college={college} rank={idx + 1} />
+                {displayed.map((college, idx) => (
+                  <div
+                    key={college.id}
+                    className={idx >= PREVIEW_COUNT ? 'expand-card' : ''}
+                    style={idx >= PREVIEW_COUNT ? { animationDelay: `${(idx - PREVIEW_COUNT) * 0.04}s` } : undefined}
+                  >
+                    <CollegeCard college={college} rank={idx + 1} />
+                  </div>
                 ))}
               </div>
+
+              {/* Expand / Collapse button — only if tier has more than PREVIEW_COUNT */}
+              {hasMore && (
+                <div className="flex justify-center mt-3 mb-2">
+                  {!isExpanded ? (
+                    <button
+                      onClick={() => {
+                        setExpanded(prev => ({ ...prev, [tier]: true }))
+                        setTimeout(() => {
+                          sectionRefs.current[tier]?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                        }, 50)
+                      }}
+                      className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold border transition-all cursor-pointer ${cfg.btnBorder} ${cfg.btnText} ${cfg.btnHoverBg} bg-white`}
+                    >
+                      Show all {tierColleges.length} {cfg.tierName} colleges
+                      <ChevronDown size={14} />
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => {
+                        setExpanded(prev => ({ ...prev, [tier]: false }))
+                        setTimeout(() => {
+                          sectionRefs.current[tier]?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                        }, 50)
+                      }}
+                      className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold border transition-all cursor-pointer ${cfg.btnBorder} ${cfg.btnText} ${cfg.btnHoverBg} bg-white`}
+                    >
+                      Show less
+                      <ChevronUp size={14} />
+                    </button>
+                  )}
+                </div>
+              )}
             </div>
           )
         })}
@@ -201,6 +372,13 @@ export default function RankResult({
             Get Full List &amp; PDF  →
           </button>
         </div>
+      </div>
+
+      {/* ── Part D: Placeholder for Mains ── */}
+      <div className="mt-6 bg-gray-50 rounded-2xl p-6 border border-gray-200 text-center">
+        <h3 className="text-gray-600 font-semibold text-sm">
+          NIT & IIIT predictor based on JEE Mains rank — Coming Soon
+        </h3>
       </div>
     </div>
   )

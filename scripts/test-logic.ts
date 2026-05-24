@@ -1,15 +1,16 @@
 import { getRankRange } from '../lib/rank-lookup';
 import { supabaseAdmin } from '../lib/supabase-admin';
+import { Category } from '../types/database';
 
 async function runTests() {
   const testMarks = 121;
-  const testCategory = 'GEN';
+  const testCategory: Category = 'GEN';
 
   console.log('====================================');
   console.log(`1. Testing Rank Prediction for ${testMarks} marks (${testCategory})`);
   console.log('====================================');
   
-  const rankResult = getRankRange(testMarks, testCategory as any);
+  const rankResult = getRankRange(testMarks, testCategory);
   console.log(JSON.stringify(rankResult, null, 2));
 
   if (!rankResult) {

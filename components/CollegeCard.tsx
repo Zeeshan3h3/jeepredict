@@ -49,12 +49,12 @@ export default function CollegeCard({ college, rank }: CollegeCardProps) {
 
       {/* Rank info */}
       <div className="flex-shrink-0 text-right">
-        <p className="text-gray-400 text-[10px]">Closing Rank</p>
+        <p className="text-gray-400 text-[10px]">R6 Closing Rank</p>
         <p className="font-bold text-[#0F1B4C] text-sm">
-          {college.closing_rank.toLocaleString('en-IN')}
+          {(college.r6_closing ?? college.closing_rank).toLocaleString('en-IN')}
         </p>
         <p className="text-gray-400 text-[10px] mt-0.5">
-          Opening: {college.opening_rank.toLocaleString('en-IN')}
+          R1 Opening: {(college.r1_opening ?? college.opening_rank).toLocaleString('en-IN')}
         </p>
       </div>
     </div>

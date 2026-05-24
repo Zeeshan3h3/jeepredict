@@ -5,7 +5,7 @@ import { Category } from '@/types/database';
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { totalMarks, category, gender } = body;
+    const { totalMarks, category } = body;
 
     const rankResult = getRankRange(totalMarks, category as Category);
 
@@ -21,7 +21,7 @@ export async function POST(request: Request) {
       displayRank: rankResult.displayRank,
       confidenceNote: "Based on 2025 JEE Advanced data. Actual rank may vary by ±5%."
     });
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json({ error: 'Invalid request' }, { status: 400 });
   }
 }

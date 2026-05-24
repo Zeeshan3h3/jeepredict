@@ -14,7 +14,7 @@ export interface RankResult {
 export type Tier = 'dream' | 'realistic' | 'safe';
 
 export interface CollegeMatch {
-  id: number;
+  id: number | string;
   institute: string;
   program: string;
   quota: string;
@@ -25,4 +25,8 @@ export interface CollegeMatch {
   year: number;
   round?: number | null;
   tier: Tier;
+  /** Round 1 opening rank — the most competitive entry point */
+  r1_opening?: number;
+  /** Round 6 closing rank — the final/most relaxed cutoff */
+  r6_closing?: number;
 }

@@ -36,7 +36,7 @@ function main() {
       trim: true,
     });
 
-    const parsedData: RankData[] = records.map((record: any) => ({
+    const parsedData: RankData[] = (records as Record<string, string>[]).map((record) => ({
       rank: parseInt(record['Rank'], 10),
       marks: parseInt(record['Marks'], 10)
     }));
